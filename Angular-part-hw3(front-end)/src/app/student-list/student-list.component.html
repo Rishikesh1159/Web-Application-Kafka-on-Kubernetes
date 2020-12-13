@@ -1,0 +1,41 @@
+<h2>Student Form List</h2>
+<table class="table table-striped">
+ <thead>
+  <tr>
+   <th>ID</th>
+   <th>First Name</th>
+   <th>Last Name</th>
+   <th>Email Id</th>
+   <th>Address</th>
+   <th>City</th>
+   <th>State</th>
+   <th>Zipcode</th>
+   <th>Telephone</th>
+   <th>Date</th>
+   <th>Likemost</th>
+   <th>Interest</th>
+   <th>Recommend</th>
+   <th>Actions</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let student of students">
+   <td> {{student.id}} </td>
+   <td> {{student.firstName}} </td>
+   <td> {{student.lastName}} </td>
+   <td> {{student.emailId}} </td>
+   <td> {{student.address}} </td>
+   <td> {{student.city}} </td>
+   <td> {{student.state}} </td>
+   <td> {{student.zipcode}} </td>
+   <td> {{student.telephone}} </td>
+   <td> {{student.date}} </td>
+   <td> {{student.likeMOst}} </td>
+   <td> {{student.interest}} </td>
+   <td> {{student.recommend}} </td>
+   <td>
+    <button (click)="viewStudent(student.id)" class="btn btn-info">View</button>
+   </td>
+  </tr>
+ </tbody>
+</table>

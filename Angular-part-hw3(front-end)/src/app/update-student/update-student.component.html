@@ -1,0 +1,147 @@
+<hr>
+<div class="col-md-7 offset-md-3">
+
+ <h3>Student Form</h3>
+ <div [hidden]="submitted">
+  <form #studentForm="ngForm" (ngSubmit)="onSubmit()">
+   <div class="form-group">
+    <label>First Name <sup style="color: red;">*</sup></label>
+    <input type="text" class="form-control" id="firstName" required [(ngModel)]="student.firstName" name="firstName"
+     #fname="ngModel">
+    <span class="help-block" *ngIf="fname.invalid && fname.touched">
+     <p style="color: red;">First Name is required</p>
+    </span>
+   </div>
+   <div class="form-group">
+    <label>Last Name <sup style="color: red;">*</sup></label>
+    <input type="text" class="form-control" id="lastName" required [(ngModel)]="student.lastName" name="lastName"
+     #lname="ngModel">
+    <span class="help-block" *ngIf="lname.invalid && lname.touched">
+     <p style="color: red;">Last Name is required</p>
+    </span>
+   </div>
+   <div class="form-group">
+    <label>Email Id <sup style="color: red;">*</sup></label>
+    <input type="text" class="form-control" id="emailId" required [(ngModel)]="student.emailId" name="emailId"
+     #email="ngModel">
+    <span class="help-block" *ngIf="email.invalid && email.touched">
+     <p style="color: red;">Email is required</p>
+    </span>
+   </div>
+   <div class="form-group">
+    <label>Address <sup style="color: red;">*</sup></label>
+    <input type="text" class="form-control" id="address" required [(ngModel)]="student.address" name="address"
+     #address="ngModel">
+    <span class="help-block" *ngIf="address.invalid && address.touched">
+     <p style="color: red;">Address is required</p>
+    </span>
+   </div>
+   <div class="form-group">
+    <label>City <sup style="color: red;">*</sup></label>
+    <input type="text" class="form-control" id="city" required [(ngModel)]="student.city" name="city" #city="ngModel">
+    <span class="help-block" *ngIf="city.invalid && city.touched">
+     <p style="color: red;">City is required</p>
+    </span>
+   </div>
+   <div class="form-group">
+    <label>State <sup style="color: red;">*</sup></label>
+    <input type="text" class="form-control" id="state" required [(ngModel)]="student.state" name="state"
+     #state="ngModel">
+    <span class="help-block" *ngIf="state.invalid && state.touched">
+     <p style="color: red;">State is required</p>
+    </span>
+   </div>
+   <div class="form-group">
+    <label>Zipcode <sup style="color: red;">*</sup></label>
+    <input type="number" class="form-control" id="zipcode" required [(ngModel)]="student.zipcode" name="zipcode"
+     #zipcode="ngModel">
+    <span class="help-block" *ngIf="zipcode.invalid && zipcode.touched">
+     <p style="color: red;">Zipcode is required</p>
+    </span>
+   </div>
+   <div class="form-group">
+    <label>Telephone <sup style="color: red;">*</sup></label>
+    <input type="text" class="form-control" id="telephone" required [(ngModel)]="student.telephone" name="telephone"
+     #tel="ngModel">
+    <span class="help-block" *ngIf="tel.invalid && tel.touched">
+     <p style="color: red;">Telephone is required</p>
+    </span>
+   </div>
+   <div class="form-group">
+    <label>date <sup style="color: red;">*</sup></label>
+    <input type="date" class="form-control" id="date" required [(ngModel)]="student.date" name="date" #date="ngModel">
+    <span class="help-block" *ngIf="date.invalid && date.touched">
+     <p style="color: red;">Date is required</p>
+    </span>
+   </div>
+
+   <div class="form-group">
+    <label>LikeMost</label>
+    <div class="form-control">
+     <label class="checkbox-inline">
+      <input type="checkbox" value="students" [(ngModel)]="checkBox1" name="students">students
+     </label>
+     <label class="checkbox-inline" style="margin-left: 10px;">
+      <input type="checkbox" value="location" [(ngModel)]="checkBox2" name="location">location
+     </label>
+     <label class="checkbox-inline" style="margin-left: 10px;">
+      <input type="checkbox" value="campus" [(ngModel)]="checkBox3" name="campus">campus
+     </label>
+     <label class="checkbox-inline" style="margin-left: 10px;">
+      <input type="checkbox" value="atmosphere" [(ngModel)]="checkBox4" name="atmosphere">atmosphere
+     </label>
+     <label class="checkbox-inline" style="margin-left: 10px;">
+      <input type="checkbox" value="dorms" [(ngModel)]="checkBox5" name="dorms">Dorm Rooms
+     </label>
+     <label class="checkbox-inline" style="margin-left: 10px;">
+      <input type="checkbox" value="sports" [(ngModel)]="checkBox6" name="sports">Sports
+     </label>
+    </div>
+   </div>
+
+   <div class="form-group">
+    <label>Interest</label>
+    <div class="form-control">
+     <label class="radio-inline">
+      <input type="radio" value="friends" [(ngModel)]="student.interest" name="interest">Friends
+     </label>
+     <label class="radio-inline" style="margin-left: 10px;">
+      <input type="radio" value="television" [(ngModel)]="student.interest" name="interest">Television
+     </label>
+     <label class="radio-inline" style="margin-left: 10px;">
+      <input type="radio" value="internet" [(ngModel)]="student.interest" name="interest">Internet
+     </label>
+     <label class="radio-inline" style="margin-left: 10px;">
+      <input type="radio" value="other" [(ngModel)]="student.interest" name="interest">other
+     </label>
+    </div>
+
+   </div>
+
+   <div class="form-group">
+    <label>Recommend</label>
+    <div class="form-control">
+     <select (change)="selectChangeHandler($event)">
+      <option value="Very Likely">Very Likely</option>
+      <option value="Likely">Likely</option>
+      <option value="Unlikely">unlikely</option>
+     </select>
+    </div>
+   </div>
+   <br>
+
+   <button class="btn btn-success" type="submit" [disabled]="studentForm.invalid">Submit</button>
+
+   <button class="btn btn-success" type="reset" style="margin-left: 50px;">Cancel</button>
+
+
+  </form>
+
+ </div>
+ <div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+ </div>
+</div>
+<br>
+<br>
+<hr>
